@@ -29,3 +29,14 @@ terraform plan
 ```
 
 Os outputs (`workspace_id`, `workspace_name`, `databricks_host`) podem ser usados por outros scripts ou CI.
+
+## Catálogos Motiva (dados sintéticos)
+
+Para criar os 10 catálogos no workspace, defina em `terraform.tfvars`:
+
+```hcl
+enable_motiva_synthetic_catalogs = true
+motiva_catalog_storage_root     = "s3://SEU_BUCKET/uc/motiva"
+```
+
+`motiva_catalog_storage_root` é obrigatório se o metastore não tiver storage root (ex.: workspace com Default Storage). Use o path de uma external location ou de um bucket S3 com permissões UC.

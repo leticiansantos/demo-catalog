@@ -49,8 +49,17 @@ O script `deploy-workspace.sh` cria um workspace Databricks com o template **AWS
 ./deploy-workspace.sh
 ```
 
+## Dados sintéticos (Motiva)
+
+Simulação de 10 catálogos da empresa **Motiva** (rodovias, trens, metrô, pedágios, RH, etc.): 50 schemas e ~913 tabelas (5–30 por schema).
+
+- **Lista completa com nomes:** [docs/SYNTHETIC_DATA_SPEC.md](docs/SYNTHETIC_DATA_SPEC.md)
+- **Ver lista no terminal:** `python3 scripts/synthetic_data_spec.py --list`
+- **Spec em JSON:** `scripts/synthetic_data_spec.json` (para criação programática futura)
+- **Terraform:** os 10 catálogos podem ser criados no workspace definindo `enable_motiva_synthetic_catalogs = true` em `terraform.tfvars`; schemas e tabelas ficam a cargo de um script que consuma o JSON.
+
 ## Requisitos
 
 - [Terraform](https://www.terraform.io/) (≥ 1.0) e provider Databricks
 - [Databricks CLI](https://docs.databricks.com/dev-tools/cli/index.html) para `databricks auth login`
-- Python 3 (para o cliente da Vending Machine usado pelo script)
+- Python 3 (para o cliente da Vending Machine e script de spec)

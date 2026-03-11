@@ -1,0 +1,1385 @@
+[
+  {
+    "catalog": "motiva_rodovias",
+    "description": "Concessões, tráfego e indicadores de rodovias",
+    "schemas": [
+      {
+        "schema": "base",
+        "tables": [
+          "base_tab_1",
+          "base_tab_2",
+          "base_tab_3",
+          "base_tab_4",
+          "base_tab_5"
+        ],
+        "table_count": 5
+      },
+      {
+        "schema": "raw_concessoes",
+        "tables": [
+          "raw_concessoes_tab_1",
+          "raw_concessoes_tab_2",
+          "raw_concessoes_tab_3",
+          "raw_concessoes_tab_4",
+          "raw_concessoes_tab_5",
+          "raw_concessoes_tab_6",
+          "raw_concessoes_tab_7",
+          "raw_concessoes_tab_8",
+          "raw_concessoes_tab_9",
+          "raw_concessoes_tab_10",
+          "raw_concessoes_tab_11",
+          "raw_concessoes_tab_12",
+          "raw_concessoes_tab_13",
+          "raw_concessoes_tab_14",
+          "raw_concessoes_tab_15",
+          "raw_concessoes_tab_16",
+          "raw_concessoes_tab_17",
+          "raw_concessoes_tab_18",
+          "raw_concessoes_tab_19",
+          "raw_concessoes_tab_20",
+          "raw_concessoes_tab_21",
+          "raw_concessoes_tab_22",
+          "raw_concessoes_tab_23"
+        ],
+        "table_count": 23
+      },
+      {
+        "schema": "silver_trafego",
+        "tables": [
+          "silver_trafego_tab_1",
+          "silver_trafego_tab_2",
+          "silver_trafego_tab_3",
+          "silver_trafego_tab_4",
+          "silver_trafego_tab_5",
+          "silver_trafego_tab_6",
+          "silver_trafego_tab_7",
+          "silver_trafego_tab_8",
+          "silver_trafego_tab_9",
+          "silver_trafego_tab_10",
+          "silver_trafego_tab_11",
+          "silver_trafego_tab_12",
+          "silver_trafego_tab_13",
+          "silver_trafego_tab_14",
+          "silver_trafego_tab_15",
+          "silver_trafego_tab_16",
+          "silver_trafego_tab_17",
+          "silver_trafego_tab_18",
+          "silver_trafego_tab_19",
+          "silver_trafego_tab_20",
+          "silver_trafego_tab_21",
+          "silver_trafego_tab_22",
+          "silver_trafego_tab_23",
+          "silver_trafego_tab_24",
+          "silver_trafego_tab_25",
+          "silver_trafego_tab_26",
+          "silver_trafego_tab_27",
+          "silver_trafego_tab_28",
+          "silver_trafego_tab_29"
+        ],
+        "table_count": 29
+      },
+      {
+        "schema": "gold_indicadores",
+        "tables": [
+          "gold_indicadores_tab_1",
+          "gold_indicadores_tab_2",
+          "gold_indicadores_tab_3",
+          "gold_indicadores_tab_4",
+          "gold_indicadores_tab_5",
+          "gold_indicadores_tab_6",
+          "gold_indicadores_tab_7",
+          "gold_indicadores_tab_8",
+          "gold_indicadores_tab_9",
+          "gold_indicadores_tab_10",
+          "gold_indicadores_tab_11",
+          "gold_indicadores_tab_12",
+          "gold_indicadores_tab_13",
+          "gold_indicadores_tab_14",
+          "gold_indicadores_tab_15",
+          "gold_indicadores_tab_16",
+          "gold_indicadores_tab_17",
+          "gold_indicadores_tab_18",
+          "gold_indicadores_tab_19"
+        ],
+        "table_count": 19
+      },
+      {
+        "schema": "custos_operacao",
+        "tables": [
+          "custos_operacao_tab_1",
+          "custos_operacao_tab_2",
+          "custos_operacao_tab_3",
+          "custos_operacao_tab_4",
+          "custos_operacao_tab_5",
+          "custos_operacao_tab_6",
+          "custos_operacao_tab_7",
+          "custos_operacao_tab_8",
+          "custos_operacao_tab_9",
+          "custos_operacao_tab_10",
+          "custos_operacao_tab_11",
+          "custos_operacao_tab_12",
+          "custos_operacao_tab_13",
+          "custos_operacao_tab_14",
+          "custos_operacao_tab_15",
+          "custos_operacao_tab_16",
+          "custos_operacao_tab_17",
+          "custos_operacao_tab_18",
+          "custos_operacao_tab_19",
+          "custos_operacao_tab_20"
+        ],
+        "table_count": 20
+      },
+      {
+        "schema": "incidentes",
+        "tables": [
+          "incidentes_tab_1",
+          "incidentes_tab_2",
+          "incidentes_tab_3",
+          "incidentes_tab_4",
+          "incidentes_tab_5",
+          "incidentes_tab_6",
+          "incidentes_tab_7",
+          "incidentes_tab_8",
+          "incidentes_tab_9",
+          "incidentes_tab_10",
+          "incidentes_tab_11",
+          "incidentes_tab_12",
+          "incidentes_tab_13",
+          "incidentes_tab_14",
+          "incidentes_tab_15",
+          "incidentes_tab_16",
+          "incidentes_tab_17",
+          "incidentes_tab_18",
+          "incidentes_tab_19",
+          "incidentes_tab_20",
+          "incidentes_tab_21",
+          "incidentes_tab_22",
+          "incidentes_tab_23",
+          "incidentes_tab_24",
+          "incidentes_tab_25"
+        ],
+        "table_count": 25
+      }
+    ]
+  },
+  {
+    "catalog": "motiva_trens",
+    "description": "Viagens, frota e passageiros de trens",
+    "schemas": [
+      {
+        "schema": "base",
+        "tables": [
+          "base_tab_1",
+          "base_tab_2",
+          "base_tab_3",
+          "base_tab_4",
+          "base_tab_5"
+        ],
+        "table_count": 5
+      },
+      {
+        "schema": "raw_viagens",
+        "tables": [
+          "raw_viagens_tab_1",
+          "raw_viagens_tab_2",
+          "raw_viagens_tab_3",
+          "raw_viagens_tab_4",
+          "raw_viagens_tab_5",
+          "raw_viagens_tab_6",
+          "raw_viagens_tab_7",
+          "raw_viagens_tab_8",
+          "raw_viagens_tab_9",
+          "raw_viagens_tab_10",
+          "raw_viagens_tab_11",
+          "raw_viagens_tab_12",
+          "raw_viagens_tab_13",
+          "raw_viagens_tab_14",
+          "raw_viagens_tab_15",
+          "raw_viagens_tab_16",
+          "raw_viagens_tab_17",
+          "raw_viagens_tab_18",
+          "raw_viagens_tab_19",
+          "raw_viagens_tab_20"
+        ],
+        "table_count": 20
+      },
+      {
+        "schema": "silver_frota",
+        "tables": [
+          "silver_frota_tab_1",
+          "silver_frota_tab_2",
+          "silver_frota_tab_3",
+          "silver_frota_tab_4",
+          "silver_frota_tab_5",
+          "silver_frota_tab_6",
+          "silver_frota_tab_7",
+          "silver_frota_tab_8",
+          "silver_frota_tab_9",
+          "silver_frota_tab_10",
+          "silver_frota_tab_11",
+          "silver_frota_tab_12",
+          "silver_frota_tab_13",
+          "silver_frota_tab_14",
+          "silver_frota_tab_15",
+          "silver_frota_tab_16",
+          "silver_frota_tab_17",
+          "silver_frota_tab_18",
+          "silver_frota_tab_19",
+          "silver_frota_tab_20",
+          "silver_frota_tab_21",
+          "silver_frota_tab_22"
+        ],
+        "table_count": 22
+      },
+      {
+        "schema": "gold_passageiros",
+        "tables": [
+          "gold_passageiros_tab_1",
+          "gold_passageiros_tab_2",
+          "gold_passageiros_tab_3",
+          "gold_passageiros_tab_4",
+          "gold_passageiros_tab_5",
+          "gold_passageiros_tab_6",
+          "gold_passageiros_tab_7",
+          "gold_passageiros_tab_8",
+          "gold_passageiros_tab_9",
+          "gold_passageiros_tab_10",
+          "gold_passageiros_tab_11",
+          "gold_passageiros_tab_12",
+          "gold_passageiros_tab_13",
+          "gold_passageiros_tab_14",
+          "gold_passageiros_tab_15",
+          "gold_passageiros_tab_16",
+          "gold_passageiros_tab_17",
+          "gold_passageiros_tab_18",
+          "gold_passageiros_tab_19",
+          "gold_passageiros_tab_20",
+          "gold_passageiros_tab_21",
+          "gold_passageiros_tab_22",
+          "gold_passageiros_tab_23",
+          "gold_passageiros_tab_24"
+        ],
+        "table_count": 24
+      },
+      {
+        "schema": "manutencao_vagoes",
+        "tables": [
+          "manutencao_vagoes_tab_1",
+          "manutencao_vagoes_tab_2",
+          "manutencao_vagoes_tab_3",
+          "manutencao_vagoes_tab_4",
+          "manutencao_vagoes_tab_5",
+          "manutencao_vagoes_tab_6",
+          "manutencao_vagoes_tab_7",
+          "manutencao_vagoes_tab_8",
+          "manutencao_vagoes_tab_9",
+          "manutencao_vagoes_tab_10",
+          "manutencao_vagoes_tab_11",
+          "manutencao_vagoes_tab_12",
+          "manutencao_vagoes_tab_13",
+          "manutencao_vagoes_tab_14",
+          "manutencao_vagoes_tab_15",
+          "manutencao_vagoes_tab_16"
+        ],
+        "table_count": 16
+      },
+      {
+        "schema": "horarios",
+        "tables": [
+          "horarios_tab_1",
+          "horarios_tab_2",
+          "horarios_tab_3",
+          "horarios_tab_4",
+          "horarios_tab_5",
+          "horarios_tab_6",
+          "horarios_tab_7",
+          "horarios_tab_8",
+          "horarios_tab_9",
+          "horarios_tab_10",
+          "horarios_tab_11",
+          "horarios_tab_12",
+          "horarios_tab_13",
+          "horarios_tab_14",
+          "horarios_tab_15"
+        ],
+        "table_count": 15
+      }
+    ]
+  },
+  {
+    "catalog": "motiva_metro",
+    "description": "Estações, linhas e bilhetagem do metrô",
+    "schemas": [
+      {
+        "schema": "base",
+        "tables": [
+          "base_tab_1",
+          "base_tab_2",
+          "base_tab_3",
+          "base_tab_4",
+          "base_tab_5"
+        ],
+        "table_count": 5
+      },
+      {
+        "schema": "raw_estacoes",
+        "tables": [
+          "raw_estacoes_tab_1",
+          "raw_estacoes_tab_2",
+          "raw_estacoes_tab_3",
+          "raw_estacoes_tab_4",
+          "raw_estacoes_tab_5",
+          "raw_estacoes_tab_6",
+          "raw_estacoes_tab_7",
+          "raw_estacoes_tab_8",
+          "raw_estacoes_tab_9",
+          "raw_estacoes_tab_10",
+          "raw_estacoes_tab_11",
+          "raw_estacoes_tab_12",
+          "raw_estacoes_tab_13",
+          "raw_estacoes_tab_14",
+          "raw_estacoes_tab_15"
+        ],
+        "table_count": 15
+      },
+      {
+        "schema": "silver_linhas",
+        "tables": [
+          "silver_linhas_tab_1",
+          "silver_linhas_tab_2",
+          "silver_linhas_tab_3",
+          "silver_linhas_tab_4",
+          "silver_linhas_tab_5",
+          "silver_linhas_tab_6",
+          "silver_linhas_tab_7",
+          "silver_linhas_tab_8",
+          "silver_linhas_tab_9",
+          "silver_linhas_tab_10",
+          "silver_linhas_tab_11",
+          "silver_linhas_tab_12",
+          "silver_linhas_tab_13",
+          "silver_linhas_tab_14",
+          "silver_linhas_tab_15",
+          "silver_linhas_tab_16",
+          "silver_linhas_tab_17",
+          "silver_linhas_tab_18",
+          "silver_linhas_tab_19",
+          "silver_linhas_tab_20",
+          "silver_linhas_tab_21",
+          "silver_linhas_tab_22",
+          "silver_linhas_tab_23"
+        ],
+        "table_count": 23
+      },
+      {
+        "schema": "gold_bilhetagem",
+        "tables": [
+          "gold_bilhetagem_tab_1",
+          "gold_bilhetagem_tab_2",
+          "gold_bilhetagem_tab_3",
+          "gold_bilhetagem_tab_4",
+          "gold_bilhetagem_tab_5",
+          "gold_bilhetagem_tab_6",
+          "gold_bilhetagem_tab_7",
+          "gold_bilhetagem_tab_8",
+          "gold_bilhetagem_tab_9",
+          "gold_bilhetagem_tab_10",
+          "gold_bilhetagem_tab_11",
+          "gold_bilhetagem_tab_12",
+          "gold_bilhetagem_tab_13",
+          "gold_bilhetagem_tab_14",
+          "gold_bilhetagem_tab_15",
+          "gold_bilhetagem_tab_16",
+          "gold_bilhetagem_tab_17",
+          "gold_bilhetagem_tab_18",
+          "gold_bilhetagem_tab_19",
+          "gold_bilhetagem_tab_20",
+          "gold_bilhetagem_tab_21",
+          "gold_bilhetagem_tab_22",
+          "gold_bilhetagem_tab_23",
+          "gold_bilhetagem_tab_24",
+          "gold_bilhetagem_tab_25",
+          "gold_bilhetagem_tab_26",
+          "gold_bilhetagem_tab_27",
+          "gold_bilhetagem_tab_28",
+          "gold_bilhetagem_tab_29"
+        ],
+        "table_count": 29
+      },
+      {
+        "schema": "seguranca",
+        "tables": [
+          "seguranca_tab_1",
+          "seguranca_tab_2",
+          "seguranca_tab_3",
+          "seguranca_tab_4",
+          "seguranca_tab_5",
+          "seguranca_tab_6",
+          "seguranca_tab_7",
+          "seguranca_tab_8",
+          "seguranca_tab_9"
+        ],
+        "table_count": 9
+      },
+      {
+        "schema": "infraestrutura",
+        "tables": [
+          "infraestrutura_tab_1",
+          "infraestrutura_tab_2",
+          "infraestrutura_tab_3",
+          "infraestrutura_tab_4",
+          "infraestrutura_tab_5",
+          "infraestrutura_tab_6",
+          "infraestrutura_tab_7",
+          "infraestrutura_tab_8",
+          "infraestrutura_tab_9",
+          "infraestrutura_tab_10",
+          "infraestrutura_tab_11",
+          "infraestrutura_tab_12",
+          "infraestrutura_tab_13",
+          "infraestrutura_tab_14",
+          "infraestrutura_tab_15",
+          "infraestrutura_tab_16",
+          "infraestrutura_tab_17",
+          "infraestrutura_tab_18",
+          "infraestrutura_tab_19",
+          "infraestrutura_tab_20",
+          "infraestrutura_tab_21",
+          "infraestrutura_tab_22"
+        ],
+        "table_count": 22
+      }
+    ]
+  },
+  {
+    "catalog": "motiva_pedagios",
+    "description": "Transações, tags e faturamento de pedágios",
+    "schemas": [
+      {
+        "schema": "base",
+        "tables": [
+          "base_tab_1",
+          "base_tab_2",
+          "base_tab_3",
+          "base_tab_4",
+          "base_tab_5"
+        ],
+        "table_count": 5
+      },
+      {
+        "schema": "raw_transacoes",
+        "tables": [
+          "raw_transacoes_tab_1",
+          "raw_transacoes_tab_2",
+          "raw_transacoes_tab_3",
+          "raw_transacoes_tab_4",
+          "raw_transacoes_tab_5",
+          "raw_transacoes_tab_6",
+          "raw_transacoes_tab_7",
+          "raw_transacoes_tab_8",
+          "raw_transacoes_tab_9",
+          "raw_transacoes_tab_10",
+          "raw_transacoes_tab_11",
+          "raw_transacoes_tab_12",
+          "raw_transacoes_tab_13",
+          "raw_transacoes_tab_14",
+          "raw_transacoes_tab_15",
+          "raw_transacoes_tab_16",
+          "raw_transacoes_tab_17",
+          "raw_transacoes_tab_18",
+          "raw_transacoes_tab_19",
+          "raw_transacoes_tab_20",
+          "raw_transacoes_tab_21",
+          "raw_transacoes_tab_22",
+          "raw_transacoes_tab_23"
+        ],
+        "table_count": 23
+      },
+      {
+        "schema": "silver_tags",
+        "tables": [
+          "silver_tags_tab_1",
+          "silver_tags_tab_2",
+          "silver_tags_tab_3",
+          "silver_tags_tab_4",
+          "silver_tags_tab_5",
+          "silver_tags_tab_6",
+          "silver_tags_tab_7",
+          "silver_tags_tab_8",
+          "silver_tags_tab_9",
+          "silver_tags_tab_10",
+          "silver_tags_tab_11",
+          "silver_tags_tab_12",
+          "silver_tags_tab_13",
+          "silver_tags_tab_14",
+          "silver_tags_tab_15",
+          "silver_tags_tab_16",
+          "silver_tags_tab_17",
+          "silver_tags_tab_18",
+          "silver_tags_tab_19"
+        ],
+        "table_count": 19
+      },
+      {
+        "schema": "gold_faturamento",
+        "tables": [
+          "gold_faturamento_tab_1",
+          "gold_faturamento_tab_2",
+          "gold_faturamento_tab_3",
+          "gold_faturamento_tab_4",
+          "gold_faturamento_tab_5",
+          "gold_faturamento_tab_6",
+          "gold_faturamento_tab_7",
+          "gold_faturamento_tab_8",
+          "gold_faturamento_tab_9",
+          "gold_faturamento_tab_10",
+          "gold_faturamento_tab_11",
+          "gold_faturamento_tab_12",
+          "gold_faturamento_tab_13",
+          "gold_faturamento_tab_14",
+          "gold_faturamento_tab_15",
+          "gold_faturamento_tab_16",
+          "gold_faturamento_tab_17",
+          "gold_faturamento_tab_18",
+          "gold_faturamento_tab_19",
+          "gold_faturamento_tab_20",
+          "gold_faturamento_tab_21",
+          "gold_faturamento_tab_22",
+          "gold_faturamento_tab_23",
+          "gold_faturamento_tab_24",
+          "gold_faturamento_tab_25",
+          "gold_faturamento_tab_26",
+          "gold_faturamento_tab_27"
+        ],
+        "table_count": 27
+      },
+      {
+        "schema": "concessionarias",
+        "tables": [
+          "concessionarias_tab_1",
+          "concessionarias_tab_2",
+          "concessionarias_tab_3",
+          "concessionarias_tab_4",
+          "concessionarias_tab_5",
+          "concessionarias_tab_6",
+          "concessionarias_tab_7",
+          "concessionarias_tab_8",
+          "concessionarias_tab_9",
+          "concessionarias_tab_10",
+          "concessionarias_tab_11",
+          "concessionarias_tab_12",
+          "concessionarias_tab_13",
+          "concessionarias_tab_14",
+          "concessionarias_tab_15"
+        ],
+        "table_count": 15
+      },
+      {
+        "schema": "tarifas",
+        "tables": [
+          "tarifas_tab_1",
+          "tarifas_tab_2",
+          "tarifas_tab_3",
+          "tarifas_tab_4",
+          "tarifas_tab_5"
+        ],
+        "table_count": 5
+      }
+    ]
+  },
+  {
+    "catalog": "motiva_rh",
+    "description": "Funcionários, folha e indicadores de RH",
+    "schemas": [
+      {
+        "schema": "base",
+        "tables": [
+          "base_tab_1",
+          "base_tab_2",
+          "base_tab_3",
+          "base_tab_4",
+          "base_tab_5"
+        ],
+        "table_count": 5
+      },
+      {
+        "schema": "raw_funcionarios",
+        "tables": [
+          "raw_funcionarios_tab_1",
+          "raw_funcionarios_tab_2",
+          "raw_funcionarios_tab_3",
+          "raw_funcionarios_tab_4",
+          "raw_funcionarios_tab_5",
+          "raw_funcionarios_tab_6",
+          "raw_funcionarios_tab_7",
+          "raw_funcionarios_tab_8",
+          "raw_funcionarios_tab_9",
+          "raw_funcionarios_tab_10",
+          "raw_funcionarios_tab_11",
+          "raw_funcionarios_tab_12",
+          "raw_funcionarios_tab_13",
+          "raw_funcionarios_tab_14",
+          "raw_funcionarios_tab_15",
+          "raw_funcionarios_tab_16",
+          "raw_funcionarios_tab_17",
+          "raw_funcionarios_tab_18",
+          "raw_funcionarios_tab_19",
+          "raw_funcionarios_tab_20",
+          "raw_funcionarios_tab_21",
+          "raw_funcionarios_tab_22",
+          "raw_funcionarios_tab_23",
+          "raw_funcionarios_tab_24"
+        ],
+        "table_count": 24
+      },
+      {
+        "schema": "silver_folha",
+        "tables": [
+          "silver_folha_tab_1",
+          "silver_folha_tab_2",
+          "silver_folha_tab_3",
+          "silver_folha_tab_4",
+          "silver_folha_tab_5",
+          "silver_folha_tab_6"
+        ],
+        "table_count": 6
+      },
+      {
+        "schema": "gold_indicadores_rh",
+        "tables": [
+          "gold_indicadores_rh_tab_1",
+          "gold_indicadores_rh_tab_2",
+          "gold_indicadores_rh_tab_3",
+          "gold_indicadores_rh_tab_4",
+          "gold_indicadores_rh_tab_5",
+          "gold_indicadores_rh_tab_6",
+          "gold_indicadores_rh_tab_7",
+          "gold_indicadores_rh_tab_8",
+          "gold_indicadores_rh_tab_9",
+          "gold_indicadores_rh_tab_10",
+          "gold_indicadores_rh_tab_11",
+          "gold_indicadores_rh_tab_12",
+          "gold_indicadores_rh_tab_13",
+          "gold_indicadores_rh_tab_14",
+          "gold_indicadores_rh_tab_15",
+          "gold_indicadores_rh_tab_16",
+          "gold_indicadores_rh_tab_17",
+          "gold_indicadores_rh_tab_18",
+          "gold_indicadores_rh_tab_19"
+        ],
+        "table_count": 19
+      },
+      {
+        "schema": "treinamentos",
+        "tables": [
+          "treinamentos_tab_1",
+          "treinamentos_tab_2",
+          "treinamentos_tab_3",
+          "treinamentos_tab_4",
+          "treinamentos_tab_5",
+          "treinamentos_tab_6",
+          "treinamentos_tab_7",
+          "treinamentos_tab_8",
+          "treinamentos_tab_9",
+          "treinamentos_tab_10",
+          "treinamentos_tab_11",
+          "treinamentos_tab_12"
+        ],
+        "table_count": 12
+      },
+      {
+        "schema": "beneficios",
+        "tables": [
+          "beneficios_tab_1",
+          "beneficios_tab_2",
+          "beneficios_tab_3",
+          "beneficios_tab_4",
+          "beneficios_tab_5",
+          "beneficios_tab_6",
+          "beneficios_tab_7",
+          "beneficios_tab_8",
+          "beneficios_tab_9",
+          "beneficios_tab_10",
+          "beneficios_tab_11",
+          "beneficios_tab_12"
+        ],
+        "table_count": 12
+      }
+    ]
+  },
+  {
+    "catalog": "motiva_manutencao",
+    "description": "Ordens de serviço, equipamentos e custos de manutenção",
+    "schemas": [
+      {
+        "schema": "base",
+        "tables": [
+          "base_tab_1",
+          "base_tab_2",
+          "base_tab_3",
+          "base_tab_4",
+          "base_tab_5"
+        ],
+        "table_count": 5
+      },
+      {
+        "schema": "raw_ordens_servico",
+        "tables": [
+          "raw_ordens_servico_tab_1",
+          "raw_ordens_servico_tab_2",
+          "raw_ordens_servico_tab_3",
+          "raw_ordens_servico_tab_4",
+          "raw_ordens_servico_tab_5",
+          "raw_ordens_servico_tab_6",
+          "raw_ordens_servico_tab_7",
+          "raw_ordens_servico_tab_8",
+          "raw_ordens_servico_tab_9",
+          "raw_ordens_servico_tab_10",
+          "raw_ordens_servico_tab_11",
+          "raw_ordens_servico_tab_12",
+          "raw_ordens_servico_tab_13",
+          "raw_ordens_servico_tab_14",
+          "raw_ordens_servico_tab_15"
+        ],
+        "table_count": 15
+      },
+      {
+        "schema": "silver_equipamentos",
+        "tables": [
+          "silver_equipamentos_tab_1",
+          "silver_equipamentos_tab_2",
+          "silver_equipamentos_tab_3",
+          "silver_equipamentos_tab_4",
+          "silver_equipamentos_tab_5",
+          "silver_equipamentos_tab_6",
+          "silver_equipamentos_tab_7",
+          "silver_equipamentos_tab_8",
+          "silver_equipamentos_tab_9",
+          "silver_equipamentos_tab_10",
+          "silver_equipamentos_tab_11",
+          "silver_equipamentos_tab_12",
+          "silver_equipamentos_tab_13",
+          "silver_equipamentos_tab_14",
+          "silver_equipamentos_tab_15",
+          "silver_equipamentos_tab_16",
+          "silver_equipamentos_tab_17",
+          "silver_equipamentos_tab_18",
+          "silver_equipamentos_tab_19",
+          "silver_equipamentos_tab_20",
+          "silver_equipamentos_tab_21",
+          "silver_equipamentos_tab_22",
+          "silver_equipamentos_tab_23",
+          "silver_equipamentos_tab_24",
+          "silver_equipamentos_tab_25",
+          "silver_equipamentos_tab_26",
+          "silver_equipamentos_tab_27"
+        ],
+        "table_count": 27
+      },
+      {
+        "schema": "gold_custos_manutencao",
+        "tables": [
+          "gold_custos_manutencao_tab_1",
+          "gold_custos_manutencao_tab_2",
+          "gold_custos_manutencao_tab_3",
+          "gold_custos_manutencao_tab_4",
+          "gold_custos_manutencao_tab_5",
+          "gold_custos_manutencao_tab_6",
+          "gold_custos_manutencao_tab_7",
+          "gold_custos_manutencao_tab_8",
+          "gold_custos_manutencao_tab_9",
+          "gold_custos_manutencao_tab_10",
+          "gold_custos_manutencao_tab_11"
+        ],
+        "table_count": 11
+      },
+      {
+        "schema": "contratos",
+        "tables": [
+          "contratos_tab_1",
+          "contratos_tab_2",
+          "contratos_tab_3",
+          "contratos_tab_4",
+          "contratos_tab_5",
+          "contratos_tab_6",
+          "contratos_tab_7",
+          "contratos_tab_8",
+          "contratos_tab_9",
+          "contratos_tab_10",
+          "contratos_tab_11",
+          "contratos_tab_12",
+          "contratos_tab_13",
+          "contratos_tab_14",
+          "contratos_tab_15",
+          "contratos_tab_16",
+          "contratos_tab_17",
+          "contratos_tab_18",
+          "contratos_tab_19",
+          "contratos_tab_20",
+          "contratos_tab_21",
+          "contratos_tab_22",
+          "contratos_tab_23",
+          "contratos_tab_24",
+          "contratos_tab_25",
+          "contratos_tab_26",
+          "contratos_tab_27",
+          "contratos_tab_28"
+        ],
+        "table_count": 28
+      },
+      {
+        "schema": "historico",
+        "tables": [
+          "historico_tab_1",
+          "historico_tab_2",
+          "historico_tab_3",
+          "historico_tab_4",
+          "historico_tab_5",
+          "historico_tab_6",
+          "historico_tab_7",
+          "historico_tab_8",
+          "historico_tab_9",
+          "historico_tab_10",
+          "historico_tab_11",
+          "historico_tab_12",
+          "historico_tab_13",
+          "historico_tab_14",
+          "historico_tab_15",
+          "historico_tab_16",
+          "historico_tab_17"
+        ],
+        "table_count": 17
+      }
+    ]
+  },
+  {
+    "catalog": "motiva_financeiro",
+    "description": "Lançamentos, contas e DRE",
+    "schemas": [
+      {
+        "schema": "base",
+        "tables": [
+          "base_tab_1",
+          "base_tab_2",
+          "base_tab_3",
+          "base_tab_4",
+          "base_tab_5"
+        ],
+        "table_count": 5
+      },
+      {
+        "schema": "raw_lancamentos",
+        "tables": [
+          "raw_lancamentos_tab_1",
+          "raw_lancamentos_tab_2",
+          "raw_lancamentos_tab_3",
+          "raw_lancamentos_tab_4",
+          "raw_lancamentos_tab_5",
+          "raw_lancamentos_tab_6",
+          "raw_lancamentos_tab_7",
+          "raw_lancamentos_tab_8",
+          "raw_lancamentos_tab_9",
+          "raw_lancamentos_tab_10",
+          "raw_lancamentos_tab_11",
+          "raw_lancamentos_tab_12",
+          "raw_lancamentos_tab_13",
+          "raw_lancamentos_tab_14",
+          "raw_lancamentos_tab_15",
+          "raw_lancamentos_tab_16",
+          "raw_lancamentos_tab_17",
+          "raw_lancamentos_tab_18",
+          "raw_lancamentos_tab_19",
+          "raw_lancamentos_tab_20",
+          "raw_lancamentos_tab_21",
+          "raw_lancamentos_tab_22",
+          "raw_lancamentos_tab_23",
+          "raw_lancamentos_tab_24",
+          "raw_lancamentos_tab_25",
+          "raw_lancamentos_tab_26"
+        ],
+        "table_count": 26
+      },
+      {
+        "schema": "silver_contas",
+        "tables": [
+          "silver_contas_tab_1",
+          "silver_contas_tab_2",
+          "silver_contas_tab_3",
+          "silver_contas_tab_4",
+          "silver_contas_tab_5",
+          "silver_contas_tab_6",
+          "silver_contas_tab_7",
+          "silver_contas_tab_8",
+          "silver_contas_tab_9",
+          "silver_contas_tab_10",
+          "silver_contas_tab_11",
+          "silver_contas_tab_12",
+          "silver_contas_tab_13",
+          "silver_contas_tab_14",
+          "silver_contas_tab_15",
+          "silver_contas_tab_16",
+          "silver_contas_tab_17",
+          "silver_contas_tab_18",
+          "silver_contas_tab_19",
+          "silver_contas_tab_20",
+          "silver_contas_tab_21",
+          "silver_contas_tab_22",
+          "silver_contas_tab_23",
+          "silver_contas_tab_24"
+        ],
+        "table_count": 24
+      },
+      {
+        "schema": "gold_dre",
+        "tables": [
+          "gold_dre_tab_1",
+          "gold_dre_tab_2",
+          "gold_dre_tab_3",
+          "gold_dre_tab_4",
+          "gold_dre_tab_5",
+          "gold_dre_tab_6",
+          "gold_dre_tab_7",
+          "gold_dre_tab_8",
+          "gold_dre_tab_9",
+          "gold_dre_tab_10",
+          "gold_dre_tab_11",
+          "gold_dre_tab_12",
+          "gold_dre_tab_13",
+          "gold_dre_tab_14",
+          "gold_dre_tab_15",
+          "gold_dre_tab_16",
+          "gold_dre_tab_17",
+          "gold_dre_tab_18",
+          "gold_dre_tab_19",
+          "gold_dre_tab_20",
+          "gold_dre_tab_21",
+          "gold_dre_tab_22",
+          "gold_dre_tab_23",
+          "gold_dre_tab_24",
+          "gold_dre_tab_25",
+          "gold_dre_tab_26",
+          "gold_dre_tab_27"
+        ],
+        "table_count": 27
+      },
+      {
+        "schema": "orcamento",
+        "tables": [
+          "orcamento_tab_1",
+          "orcamento_tab_2",
+          "orcamento_tab_3",
+          "orcamento_tab_4",
+          "orcamento_tab_5",
+          "orcamento_tab_6",
+          "orcamento_tab_7",
+          "orcamento_tab_8",
+          "orcamento_tab_9",
+          "orcamento_tab_10",
+          "orcamento_tab_11",
+          "orcamento_tab_12",
+          "orcamento_tab_13",
+          "orcamento_tab_14",
+          "orcamento_tab_15",
+          "orcamento_tab_16",
+          "orcamento_tab_17",
+          "orcamento_tab_18",
+          "orcamento_tab_19",
+          "orcamento_tab_20",
+          "orcamento_tab_21"
+        ],
+        "table_count": 21
+      },
+      {
+        "schema": "conciliacao",
+        "tables": [
+          "conciliacao_tab_1",
+          "conciliacao_tab_2",
+          "conciliacao_tab_3",
+          "conciliacao_tab_4",
+          "conciliacao_tab_5",
+          "conciliacao_tab_6",
+          "conciliacao_tab_7",
+          "conciliacao_tab_8",
+          "conciliacao_tab_9",
+          "conciliacao_tab_10",
+          "conciliacao_tab_11",
+          "conciliacao_tab_12",
+          "conciliacao_tab_13",
+          "conciliacao_tab_14",
+          "conciliacao_tab_15",
+          "conciliacao_tab_16",
+          "conciliacao_tab_17",
+          "conciliacao_tab_18",
+          "conciliacao_tab_19",
+          "conciliacao_tab_20"
+        ],
+        "table_count": 20
+      }
+    ]
+  },
+  {
+    "catalog": "motiva_operacoes",
+    "description": "Eventos, turnos e produção operacional",
+    "schemas": [
+      {
+        "schema": "base",
+        "tables": [
+          "base_tab_1",
+          "base_tab_2",
+          "base_tab_3",
+          "base_tab_4",
+          "base_tab_5"
+        ],
+        "table_count": 5
+      },
+      {
+        "schema": "raw_eventos",
+        "tables": [
+          "raw_eventos_tab_1",
+          "raw_eventos_tab_2",
+          "raw_eventos_tab_3",
+          "raw_eventos_tab_4",
+          "raw_eventos_tab_5",
+          "raw_eventos_tab_6",
+          "raw_eventos_tab_7"
+        ],
+        "table_count": 7
+      },
+      {
+        "schema": "silver_turnos",
+        "tables": [
+          "silver_turnos_tab_1",
+          "silver_turnos_tab_2",
+          "silver_turnos_tab_3",
+          "silver_turnos_tab_4",
+          "silver_turnos_tab_5"
+        ],
+        "table_count": 5
+      },
+      {
+        "schema": "gold_producao",
+        "tables": [
+          "gold_producao_tab_1",
+          "gold_producao_tab_2",
+          "gold_producao_tab_3",
+          "gold_producao_tab_4",
+          "gold_producao_tab_5",
+          "gold_producao_tab_6",
+          "gold_producao_tab_7",
+          "gold_producao_tab_8",
+          "gold_producao_tab_9",
+          "gold_producao_tab_10",
+          "gold_producao_tab_11",
+          "gold_producao_tab_12",
+          "gold_producao_tab_13",
+          "gold_producao_tab_14"
+        ],
+        "table_count": 14
+      },
+      {
+        "schema": "dashboards",
+        "tables": [
+          "dashboards_tab_1",
+          "dashboards_tab_2",
+          "dashboards_tab_3",
+          "dashboards_tab_4",
+          "dashboards_tab_5",
+          "dashboards_tab_6",
+          "dashboards_tab_7",
+          "dashboards_tab_8",
+          "dashboards_tab_9",
+          "dashboards_tab_10",
+          "dashboards_tab_11"
+        ],
+        "table_count": 11
+      },
+      {
+        "schema": "alertas",
+        "tables": [
+          "alertas_tab_1",
+          "alertas_tab_2",
+          "alertas_tab_3",
+          "alertas_tab_4",
+          "alertas_tab_5",
+          "alertas_tab_6",
+          "alertas_tab_7",
+          "alertas_tab_8",
+          "alertas_tab_9",
+          "alertas_tab_10",
+          "alertas_tab_11",
+          "alertas_tab_12",
+          "alertas_tab_13",
+          "alertas_tab_14",
+          "alertas_tab_15",
+          "alertas_tab_16",
+          "alertas_tab_17",
+          "alertas_tab_18",
+          "alertas_tab_19",
+          "alertas_tab_20",
+          "alertas_tab_21",
+          "alertas_tab_22",
+          "alertas_tab_23",
+          "alertas_tab_24"
+        ],
+        "table_count": 24
+      }
+    ]
+  },
+  {
+    "catalog": "motiva_ativos",
+    "description": "Veículos, equipamentos e depreciação",
+    "schemas": [
+      {
+        "schema": "base",
+        "tables": [
+          "base_tab_1",
+          "base_tab_2",
+          "base_tab_3",
+          "base_tab_4",
+          "base_tab_5"
+        ],
+        "table_count": 5
+      },
+      {
+        "schema": "raw_veiculos",
+        "tables": [
+          "raw_veiculos_tab_1",
+          "raw_veiculos_tab_2",
+          "raw_veiculos_tab_3",
+          "raw_veiculos_tab_4",
+          "raw_veiculos_tab_5",
+          "raw_veiculos_tab_6",
+          "raw_veiculos_tab_7",
+          "raw_veiculos_tab_8"
+        ],
+        "table_count": 8
+      },
+      {
+        "schema": "silver_equipamentos",
+        "tables": [
+          "silver_equipamentos_tab_1",
+          "silver_equipamentos_tab_2",
+          "silver_equipamentos_tab_3",
+          "silver_equipamentos_tab_4",
+          "silver_equipamentos_tab_5",
+          "silver_equipamentos_tab_6",
+          "silver_equipamentos_tab_7",
+          "silver_equipamentos_tab_8",
+          "silver_equipamentos_tab_9",
+          "silver_equipamentos_tab_10",
+          "silver_equipamentos_tab_11",
+          "silver_equipamentos_tab_12",
+          "silver_equipamentos_tab_13",
+          "silver_equipamentos_tab_14",
+          "silver_equipamentos_tab_15",
+          "silver_equipamentos_tab_16",
+          "silver_equipamentos_tab_17",
+          "silver_equipamentos_tab_18",
+          "silver_equipamentos_tab_19",
+          "silver_equipamentos_tab_20",
+          "silver_equipamentos_tab_21",
+          "silver_equipamentos_tab_22",
+          "silver_equipamentos_tab_23",
+          "silver_equipamentos_tab_24",
+          "silver_equipamentos_tab_25",
+          "silver_equipamentos_tab_26",
+          "silver_equipamentos_tab_27",
+          "silver_equipamentos_tab_28",
+          "silver_equipamentos_tab_29"
+        ],
+        "table_count": 29
+      },
+      {
+        "schema": "gold_depreciacao",
+        "tables": [
+          "gold_depreciacao_tab_1",
+          "gold_depreciacao_tab_2",
+          "gold_depreciacao_tab_3",
+          "gold_depreciacao_tab_4",
+          "gold_depreciacao_tab_5",
+          "gold_depreciacao_tab_6",
+          "gold_depreciacao_tab_7",
+          "gold_depreciacao_tab_8",
+          "gold_depreciacao_tab_9",
+          "gold_depreciacao_tab_10",
+          "gold_depreciacao_tab_11",
+          "gold_depreciacao_tab_12",
+          "gold_depreciacao_tab_13",
+          "gold_depreciacao_tab_14",
+          "gold_depreciacao_tab_15",
+          "gold_depreciacao_tab_16"
+        ],
+        "table_count": 16
+      },
+      {
+        "schema": "localizacao",
+        "tables": [
+          "localizacao_tab_1",
+          "localizacao_tab_2",
+          "localizacao_tab_3",
+          "localizacao_tab_4",
+          "localizacao_tab_5",
+          "localizacao_tab_6",
+          "localizacao_tab_7",
+          "localizacao_tab_8",
+          "localizacao_tab_9",
+          "localizacao_tab_10",
+          "localizacao_tab_11",
+          "localizacao_tab_12",
+          "localizacao_tab_13",
+          "localizacao_tab_14",
+          "localizacao_tab_15"
+        ],
+        "table_count": 15
+      },
+      {
+        "schema": "documentos",
+        "tables": [
+          "documentos_tab_1",
+          "documentos_tab_2",
+          "documentos_tab_3",
+          "documentos_tab_4",
+          "documentos_tab_5",
+          "documentos_tab_6",
+          "documentos_tab_7",
+          "documentos_tab_8",
+          "documentos_tab_9",
+          "documentos_tab_10",
+          "documentos_tab_11",
+          "documentos_tab_12",
+          "documentos_tab_13",
+          "documentos_tab_14",
+          "documentos_tab_15",
+          "documentos_tab_16",
+          "documentos_tab_17",
+          "documentos_tab_18",
+          "documentos_tab_19",
+          "documentos_tab_20",
+          "documentos_tab_21",
+          "documentos_tab_22",
+          "documentos_tab_23",
+          "documentos_tab_24",
+          "documentos_tab_25"
+        ],
+        "table_count": 25
+      }
+    ]
+  },
+  {
+    "catalog": "motiva_clientes",
+    "description": "Cadastros, contratos e consumo de clientes/usuários",
+    "schemas": [
+      {
+        "schema": "base",
+        "tables": [
+          "base_tab_1",
+          "base_tab_2",
+          "base_tab_3",
+          "base_tab_4",
+          "base_tab_5"
+        ],
+        "table_count": 5
+      },
+      {
+        "schema": "raw_cadastros",
+        "tables": [
+          "raw_cadastros_tab_1",
+          "raw_cadastros_tab_2",
+          "raw_cadastros_tab_3",
+          "raw_cadastros_tab_4",
+          "raw_cadastros_tab_5",
+          "raw_cadastros_tab_6",
+          "raw_cadastros_tab_7",
+          "raw_cadastros_tab_8"
+        ],
+        "table_count": 8
+      },
+      {
+        "schema": "silver_contratos",
+        "tables": [
+          "silver_contratos_tab_1",
+          "silver_contratos_tab_2",
+          "silver_contratos_tab_3",
+          "silver_contratos_tab_4",
+          "silver_contratos_tab_5",
+          "silver_contratos_tab_6",
+          "silver_contratos_tab_7",
+          "silver_contratos_tab_8",
+          "silver_contratos_tab_9",
+          "silver_contratos_tab_10",
+          "silver_contratos_tab_11",
+          "silver_contratos_tab_12",
+          "silver_contratos_tab_13",
+          "silver_contratos_tab_14",
+          "silver_contratos_tab_15",
+          "silver_contratos_tab_16",
+          "silver_contratos_tab_17"
+        ],
+        "table_count": 17
+      },
+      {
+        "schema": "gold_consumo",
+        "tables": [
+          "gold_consumo_tab_1",
+          "gold_consumo_tab_2",
+          "gold_consumo_tab_3",
+          "gold_consumo_tab_4",
+          "gold_consumo_tab_5"
+        ],
+        "table_count": 5
+      },
+      {
+        "schema": "suporte",
+        "tables": [
+          "suporte_tab_1",
+          "suporte_tab_2",
+          "suporte_tab_3",
+          "suporte_tab_4",
+          "suporte_tab_5",
+          "suporte_tab_6",
+          "suporte_tab_7",
+          "suporte_tab_8",
+          "suporte_tab_9",
+          "suporte_tab_10",
+          "suporte_tab_11",
+          "suporte_tab_12",
+          "suporte_tab_13",
+          "suporte_tab_14"
+        ],
+        "table_count": 14
+      },
+      {
+        "schema": "preferencias",
+        "tables": [
+          "preferencias_tab_1",
+          "preferencias_tab_2",
+          "preferencias_tab_3",
+          "preferencias_tab_4",
+          "preferencias_tab_5",
+          "preferencias_tab_6",
+          "preferencias_tab_7",
+          "preferencias_tab_8",
+          "preferencias_tab_9",
+          "preferencias_tab_10",
+          "preferencias_tab_11",
+          "preferencias_tab_12",
+          "preferencias_tab_13",
+          "preferencias_tab_14",
+          "preferencias_tab_15",
+          "preferencias_tab_16",
+          "preferencias_tab_17",
+          "preferencias_tab_18",
+          "preferencias_tab_19",
+          "preferencias_tab_20",
+          "preferencias_tab_21",
+          "preferencias_tab_22",
+          "preferencias_tab_23",
+          "preferencias_tab_24",
+          "preferencias_tab_25",
+          "preferencias_tab_26"
+        ],
+        "table_count": 26
+      }
+    ]
+  }
+]

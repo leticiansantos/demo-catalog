@@ -5,3 +5,7 @@ workspace_id    = "SEU_WORKSPACE_ID"
 workspace_name  = "nome-do-workspace"
 environment     = "demo"
 databricks_host = "https://SEU-SUBDOMAIN.cloud.databricks.com"
+
+# Só necessário para criar os catálogos Motiva (Default Storage sem metastore root):
+# enable_motiva_synthetic_catalogs = true
+# motiva_catalog_storage_root     = "s3://SEU_BUCKET/uc/motiva"
