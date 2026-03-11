@@ -55,8 +55,15 @@ Simulação de 10 catálogos da empresa **Motiva** (rodovias, trens, metrô, ped
 
 - **Lista completa com nomes:** [docs/SYNTHETIC_DATA_SPEC.md](docs/SYNTHETIC_DATA_SPEC.md)
 - **Ver lista no terminal:** `python3 scripts/synthetic_data_spec.py --list`
-- **Spec em JSON:** `scripts/synthetic_data_spec.json` (para criação programática futura)
-- **Terraform:** os 10 catálogos podem ser criados no workspace definindo `enable_motiva_synthetic_catalogs = true` em `terraform.tfvars`; schemas e tabelas ficam a cargo de um script que consuma o JSON.
+- **Spec em JSON:** `scripts/synthetic_data_spec.json` (para criação programática)
+- **Criar schemas e tabelas:** depois dos catálogos criados pelo Terraform, corre `scripts/create_schemas_tables.py` (requer `databricks-sdk`, `DATABRICKS_HOST`/token e um SQL Warehouse). Ver `scripts/requirements.txt`.
+
+## Catalog Browser (app)
+
+App para **pessoas não técnicas** visualizarem o que existe no Databricks: árvore de catálogos → schemas → tabelas (estilo armazenamento de ficheiros). Ao clicar numa tabela: descrição, colunas (tipo e descrição), esquema e dono. Para a demo, só são listados catálogos com prefixo **motiva**.
+
+- **Código:** [catalog-browser/](catalog-browser/) (backend FastAPI + frontend React)
+- **Como correr:** ver [catalog-browser/README.md](catalog-browser/README.md)
 
 ## Requisitos
 
