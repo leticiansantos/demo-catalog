@@ -1,0 +1,56 @@
+# Demo Catalog
+
+Repositório com configuração e scripts para workspace Databricks usado em demos: Terraform para o workspace de teste e script para criar novos workspaces via FE Vending Machine.
+
+## Estrutura
+
+```
+demo-catalog/
+├── README.md           # este ficheiro
+├── deploy-workspace.sh # cria um workspace via FE Vending Machine (AWS Stable Classic)
+├── .gitignore
+└── terraform/          # workspace de teste (variáveis centralizadas)
+    ├── README.md
+    ├── main.tf
+    ├── variables.tf
+    ├── versions.tf
+    ├── terraform.tfvars.example
+    └── terraform.tfvars             # não versionado (cópia do .example e editar)
+```
+
+## Terraform (workspace de teste)
+
+O Terraform define o **workspace de teste** atual (ID, nome, host). Use-o como referência para recursos e para trocar de workspace no futuro.
+
+- **Configuração:** editar `terraform/terraform.tfvars` (não está no Git; usar `terraform.tfvars.example` como base).
+- **Uso:** ver [terraform/README.md](terraform/README.md).
+
+```bash
+cd terraform
+cp terraform.tfvars.example terraform.tfvars   # se ainda não existir
+# editar terraform.tfvars com o teu workspace
+terraform init
+terraform plan
+```
+
+## Criar um novo workspace (FE Vending Machine)
+
+O script `deploy-workspace.sh` cria um workspace Databricks com o template **AWS Stable Classic** via FE Vending Machine. Use-o quando quiser criar ou mudar para outro workspace.
+
+- **Nome do workspace:** variável `DEPLOY_WORKSPACE_NAME` no script (por defeito `leticia-demo-catalog`) ou:
+
+  ```bash
+  DEPLOY_WORKSPACE_NAME=meu-workspace ./deploy-workspace.sh
+  ```
+
+- **Pré-requisitos:** autenticação na [FE Vending Machine](https://vending-machine-main-2481552415672103.aws.databricksapps.com/) (ver mensagens do script).
+
+```bash
+./deploy-workspace.sh
+```
+
+## Requisitos
+
+- [Terraform](https://www.terraform.io/) (≥ 1.0) e provider Databricks
+- [Databricks CLI](https://docs.databricks.com/dev-tools/cli/index.html) para `databricks auth login`
+- Python 3 (para o cliente da Vending Machine usado pelo script)
