@@ -1,0 +1,7 @@
+# Copie para terraform.tfvars e preencha com o seu workspace.
+# Para mudar de workspace no futuro: edite terraform.tfvars e reaplique.
+
+workspace_id    = "SEU_WORKSPACE_ID"
+workspace_name  = "nome-do-workspace"
+environment     = "demo"
+databricks_host = "https://SEU-SUBDOMAIN.cloud.databricks.com"
