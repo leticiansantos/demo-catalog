@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Cria schemas e tabelas no Databricks a partir da spec Motiva (synthetic_data_spec.json).
+Cada tabela recebe entre 3 e 15 colunas com nomes coerentes ao catálogo/schema (table_columns.py).
 Requer: DATABRICKS_HOST e DATABRICKS_TOKEN (ou databricks auth login) e um SQL Warehouse.
 Uso: python create_schemas_tables.py [--spec path/to/spec.json] [--dry-run]
 """
@@ -17,11 +18,20 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
 DEFAULT_SPEC = SCRIPT_DIR / "synthetic_data_spec.json"
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
+from table_columns import get_columns_for_table, get_table_comment
 
 
 def load_spec(path: Path) -> list:
     with open(path, encoding="utf-8") as f:
         return json.load(f)
+
+
+def _escape_sql_string(s: str) -> str:
+    """Escapa aspas simples para uso em strings SQL ('')."""
+    return s.replace("'", "''")
 
 
 def get_warehouse_id(w):
@@ -88,8 +98,12 @@ def main():
 
             for table_name in sch["tables"]:
                 full_table = f"{full_schema}.{table_name}"
-                # Tabela Delta mínima (uma coluna) para poder popular depois
-                sql = f"CREATE TABLE IF NOT EXISTS {full_table} (id BIGINT) USING DELTA"
+                columns = get_columns_for_table(catalog_name, schema_name, table_name)
+                col_list = ", ".join(
+                    f"{name} {dtype} COMMENT '{_escape_sql_string(comment)}'"
+                    for name, dtype, comment in columns
+                )
+                sql = f"CREATE OR REPLACE TABLE {full_table} ({col_list}) USING DELTA"
                 try:
                     w.statement_execution.execute_statement(
                         warehouse_id=warehouse_id,
@@ -99,6 +113,18 @@ def main():
                     created_tables += 1
                 except Exception as e:
                     errors.append((f"TABLE {full_table}", str(e)))
+                    continue
+                # Comentário da tabela
+                table_comment = get_table_comment(catalog_name, schema_name, table_name)
+                comment_sql = f"COMMENT ON TABLE {full_table} IS '{_escape_sql_string(table_comment)}'"
+                try:
+                    w.statement_execution.execute_statement(
+                        warehouse_id=warehouse_id,
+                        statement=comment_sql,
+                        wait_timeout="30s",
+                    )
+                except Exception as e:
+                    errors.append((f"COMMENT TABLE {full_table}", str(e)))
 
             if created_tables % 100 == 0 and created_tables > 0:
                 print(f"  ... {created_schemas} schemas, {created_tables} tabelas", flush=True)
