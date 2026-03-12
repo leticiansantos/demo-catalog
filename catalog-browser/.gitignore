@@ -1,6 +1,7 @@
 # Env (nunca commitar .env com tokens)
 .env
 .env.local
+app.env
 
 # Frontend
 frontend/node_modules/

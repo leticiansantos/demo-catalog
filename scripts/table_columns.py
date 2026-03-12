@@ -19,6 +19,23 @@ ColumnDef = Tuple[str, str, str]
 MIN_COLUMNS = 3
 MAX_COLUMNS = 15
 
+# Catálogo único: schemas têm nome {domínio}_{suffix} (ex.: motiva_ativos_base)
+# Usado para derivar o pool de colunas a partir do schema em vez do catálogo.
+SINGLE_CATALOG_NAME = "leticia_demo_catalog_catalog"
+
+def _domain_key_from_schema(catalog_name: str, schema_name: str) -> str | None:
+    """Se o catálogo for o único (leticia_demo_catalog_catalog), retorna o domínio
+    (ex.: motiva_ativos) a partir do schema (ex.: motiva_ativos_base). Caso contrário, None.
+    """
+    if catalog_name != SINGLE_CATALOG_NAME:
+        return None
+    # Maior prefixo que seja chave de COLUMN_POOLS e que o schema comece com ele
+    candidates = [
+        k for k in COLUMN_POOLS
+        if schema_name == k or schema_name.startswith(k + "_")
+    ]
+    return max(candidates, key=len) if candidates else None
+
 # Comentários por nome de coluna (português). Usado para COMMENT na definição da coluna.
 COLUMN_COMMENTS: dict[str, str] = {
     "id": "Identificador único do registro",
@@ -344,9 +361,11 @@ COLUMN_POOLS: dict[str, List[Tuple[str, str]]] = {
 def get_columns_for_table(catalog_name: str, schema_name: str, table_name: str) -> List[ColumnDef]:
     """
     Retorna entre 3 e 15 colunas (nome, tipo, comentário) para a tabela, de forma determinística.
-    Usa o pool do catálogo; nomes e comentários fazem sentido para o domínio.
+    Usa o pool do catálogo; no catálogo único (leticia_demo_catalog_catalog), o domínio
+    é derivado do nome do schema (ex.: motiva_ativos_base -> motiva_ativos).
     """
-    pool = COLUMN_POOLS.get(catalog_name)
+    pool_key = _domain_key_from_schema(catalog_name, schema_name) or catalog_name
+    pool = COLUMN_POOLS.get(pool_key)
     if not pool or len(pool) < MIN_COLUMNS:
         pool = [
             ("id", "BIGINT"),
@@ -370,8 +389,9 @@ def get_columns_for_table(catalog_name: str, schema_name: str, table_name: str) 
 def get_table_comment(catalog_name: str, schema_name: str, table_name: str) -> str:
     """
     Gera um comentário em português para a tabela a partir do catálogo, schema e nome.
+    No catálogo único, o domínio e o hint são derivados do schema (ex.: motiva_ativos_base).
     """
-    # Descrições curtas por prefixo de schema (quando não é "base")
+    # Descrições curtas por prefixo do sufixo do schema (base, raw_*, silver_*, etc.)
     schema_hint = {
         "raw_": "dados brutos",
         "silver_": "dados tratados",
@@ -394,12 +414,23 @@ def get_table_comment(catalog_name: str, schema_name: str, table_name: str) -> s
         "preferencias": "preferências",
     }
     hint = "dados base"
+    # No catálogo único, o schema é tipo motiva_ativos_base; o sufixo é "base" ou "raw_veiculos", etc.
+    suffix = ""
+    domain_key = _domain_key_from_schema(catalog_name, schema_name)
+    if domain_key and schema_name.startswith(domain_key + "_"):
+        suffix = schema_name[len(domain_key) + 1:]
+    else:
+        suffix = schema_name
     for prefix, desc in schema_hint.items():
-        if schema_name.startswith(prefix) or schema_name == prefix.rstrip("_"):
+        if suffix.startswith(prefix) or suffix == prefix.rstrip("_"):
             hint = desc
             break
+    if suffix == "base":
+        hint = "dados base"
 
-    # Nome do domínio a partir do catálogo (motiva_rodovias -> rodovias)
-    domain = catalog_name.replace("motiva_", "").replace("_", " ")
-    # Ex.: "Tabela de dados tratados (silver) do domínio rodovias."
+    # Nome do domínio: do domain_key (motiva_ativos -> ativos) ou do catálogo
+    if domain_key:
+        domain = domain_key.replace("motiva_", "").replace("_", " ")
+    else:
+        domain = catalog_name.replace("motiva_", "").replace("_", " ")
     return f"Tabela de {hint} do domínio {domain}."

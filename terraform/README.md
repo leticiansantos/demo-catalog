@@ -6,8 +6,8 @@ Configuração centralizada do workspace Databricks para a demo. **Qualquer alte
 
 | Variável | Valor |
 |----------|--------|
-| `workspace_id` | 7474656641328696 |
-| `workspace_name` | leticia-santos-test |
+| `workspace_id` | 7474651371892136 |
+| `workspace_name` | leticia-demo-catalog |
 | `environment` | demo |
 
 ## Como mudar de workspace
@@ -20,7 +20,7 @@ Configuração centralizada do workspace Databricks para a demo. **Qualquer alte
 
 ```bash
 # Autenticar (uma vez)
-databricks auth login --host https://fe-sandbox-leticia-santos-test.cloud.databricks.com
+databricks auth login --host https://fevm-leticia-demo-catalog.cloud.databricks.com
 
 # Inicializar e plan
 cd terraform
@@ -34,9 +34,15 @@ Os outputs (`workspace_id`, `workspace_name`, `databricks_host`) podem ser usado
 
 Para criar os 10 catálogos no workspace, defina em `terraform.tfvars`:
 
-```hcl
-enable_motiva_synthetic_catalogs = true
-motiva_catalog_storage_root     = "s3://SEU_BUCKET/uc/motiva"
-```
+- **Opção A** — usar uma external location já existente no workspace:
+  ```hcl
+  enable_motiva_synthetic_catalogs = true
+  motiva_external_location_name   = "NOME_DA_EXTERNAL_LOCATION"  # em UC > External locations
+  ```
+- **Opção B** — usar um path S3/ABFSS diretamente:
+  ```hcl
+  enable_motiva_synthetic_catalogs = true
+  motiva_catalog_storage_root      = "s3://SEU_BUCKET/uc/motiva"
+  ```
 
-`motiva_catalog_storage_root` é obrigatório se o metastore não tiver storage root (ex.: workspace com Default Storage). Use o path de uma external location ou de um bucket S3 com permissões UC.
+`motiva_catalog_storage_root` ou `motiva_external_location_name` é obrigatório se o metastore não tiver storage root (ex.: workspace com Default Storage).

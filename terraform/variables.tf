@@ -10,7 +10,7 @@ variable "workspace_id" {
 }
 
 variable "workspace_name" {
-  description = "Nome do workspace (ex: leticia-santos-test)."
+  description = "Nome do workspace (ex: leticia-demo-catalog)."
   type        = string
 }
 

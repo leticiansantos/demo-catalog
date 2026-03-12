@@ -1,0 +1,11 @@
+# Databricks Apps — Catalog Browser (FastAPI + React)
+# https://docs.databricks.com/aws/en/dev-tools/databricks-apps/app-runtime
+# Top-level "command" (not run.command) is required for custom run.
+
+command:
+  - uvicorn
+  - backend.main:app
+  - --host
+  - "0.0.0.0"
+  - --port
+  - "8000"

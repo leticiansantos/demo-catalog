@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Especificação de dados sintéticos Motiva — 10 catálogos, schemas e tabelas.
-Gera a lista completa com nomes (não cria recursos).
+Especificação de dados sintéticos Motiva — um único catálogo com schemas concatenados.
+Todos os recursos ficam em leticia_demo_catalog_catalog; cada schema tem nome
+{antigo_catalogo}_{antigo_schema} (ex.: motiva_ativos_base, motiva_rodovias_silver_trafego).
 Uso: python synthetic_data_spec.py [--list] [--json] [--yaml]
 """
 
@@ -16,7 +17,10 @@ from pathlib import Path
 # Seed fixo para contagens reproduzíveis (5–30 tabelas por schema)
 RANDOM_SEED = 42
 
-# Schema mínimo garantido em cada catálogo: 1 schema "base" com 5 tabelas
+# Único catálogo (workspace sem permissão para criar vários catálogos)
+SINGLE_CATALOG_NAME = "leticia_demo_catalog_catalog"
+
+# Schema mínimo garantido por domínio: 1 schema "base" com 5 tabelas
 BASE_SCHEMA_NAME = "base"
 BASE_TABLE_COUNT = 5
 
@@ -147,34 +151,33 @@ def _table_name(schema_name: str, i: int) -> str:
 
 
 def build_spec():
-    """Constrói a especificação completa: catálogos -> schemas -> tabelas.
-    Cada catálogo tem garantido pelo menos 1 schema ('base') com 5 tabelas, além dos demais.
+    """Constrói a especificação: um único catálogo com schemas nomeados
+    {antigo_catalogo}_{antigo_schema} (ex.: motiva_ativos_base).
     """
     random.seed(RANDOM_SEED)
-    spec = []
+    all_schemas = []
     for area, info in MOTIVA_CATALOGS.items():
         catalog_name = info["catalog"]
-        catalog_entry = {
-            "catalog": catalog_name,
-            "description": info["description"],
-            "schemas": [],
-        }
-        # Garantir pelo menos 1 schema e 5 tabelas: schema "base" com base_tab_1..base_tab_5
+        # Schema "base" com 5 tabelas
         base_tables = [_table_name(BASE_SCHEMA_NAME, i) for i in range(1, BASE_TABLE_COUNT + 1)]
-        catalog_entry["schemas"].append({
-            "schema": BASE_SCHEMA_NAME,
+        all_schemas.append({
+            "schema": f"{catalog_name}_{BASE_SCHEMA_NAME}",
             "tables": base_tables,
             "table_count": BASE_TABLE_COUNT,
         })
         for idx, schema_name in enumerate(info["schemas"]):
             n_tables = _table_count_for(area, schema_name, idx)
             tables = [_table_name(schema_name, i) for i in range(1, n_tables + 1)]
-            catalog_entry["schemas"].append({
-                "schema": schema_name,
+            all_schemas.append({
+                "schema": f"{catalog_name}_{schema_name}",
                 "tables": tables,
                 "table_count": n_tables,
             })
-        spec.append(catalog_entry)
+    spec = [{
+        "catalog": SINGLE_CATALOG_NAME,
+        "description": "Catálogo único com dados sintéticos Motiva (schemas por domínio: motiva_rodovias_base, motiva_ativos_base, etc.)",
+        "schemas": all_schemas,
+    }]
     return spec
 
 
@@ -186,9 +189,9 @@ def print_list(spec: list) -> None:
         s["table_count"] for c in spec for s in c["schemas"]
     )
     print("=" * 70)
-    print("MOTIVA — LISTA DE RECURSOS A CRIAR (dados sintéticos)")
+    print("MOTIVA — LISTA DE RECURSOS A CRIAR (um catálogo, schemas concatenados)")
     print("=" * 70)
-    print(f"Total: {total_catalogs} catálogos | {total_schemas} schemas | {total_tables} tabelas")
+    print(f"Total: {total_catalogs} catálogo(s) | {total_schemas} schemas | {total_tables} tabelas")
     print()
     for cat in spec:
         print(f"CATALOG  {cat['catalog']}")

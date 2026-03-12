@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """
 Cria schemas e tabelas no Databricks a partir da spec Motiva (synthetic_data_spec.json).
-Cada tabela recebe entre 3 e 15 colunas com nomes coerentes ao catálogo/schema (table_columns.py).
-Requer: DATABRICKS_HOST e DATABRICKS_TOKEN (ou databricks auth login) e um SQL Warehouse.
+Cada tabela é criada já com:
+  - Entre 3 e 15 colunas com nomes coerentes ao domínio (table_columns.py)
+  - Descrição (comment) em cada coluna na própria DDL
+  - Descrição (comment) na tabela via COMMENT ON TABLE
+Requer: DATABRICKS_HOST e DATABRICKS_TOKEN (catalog-browser/.env tem prioridade) e um SQL Warehouse.
 Uso: python create_schemas_tables.py [--spec path/to/spec.json] [--dry-run]
 """
 
@@ -20,6 +23,21 @@ REPO_ROOT = SCRIPT_DIR.parent
 DEFAULT_SPEC = SCRIPT_DIR / "synthetic_data_spec.json"
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
+
+# Carregar .env: catalog-browser/.env sobrescreve (workspace correto)
+_env_override = REPO_ROOT / "catalog-browser" / ".env"
+_env_fallback = REPO_ROOT / ".env"
+for _env_path in (_env_fallback, _env_override):
+    if _env_path.exists():
+        _override = _env_path == _env_override
+        with open(_env_path, encoding="utf-8") as _f:
+            for _line in _f:
+                _line = _line.strip()
+                if _line and not _line.startswith("#") and "=" in _line:
+                    _k, _, _v = _line.partition("=")
+                    _k, _v = _k.strip(), _v.strip().strip("'\"")
+                    if _k and _v and (_override or _k not in os.environ):
+                        os.environ[_k] = _v
 
 from table_columns import get_columns_for_table, get_table_comment
 
@@ -82,6 +100,16 @@ def main():
 
     for cat in spec:
         catalog_name = cat["catalog"]
+        # Criar o catálogo se não existir (útil quando há um único catálogo no workspace)
+        try:
+            w.statement_execution.execute_statement(
+                warehouse_id=warehouse_id,
+                statement=f"CREATE CATALOG IF NOT EXISTS {catalog_name}",
+                wait_timeout="30s",
+            )
+        except Exception as e:
+            errors.append((f"CATALOG {catalog_name}", str(e)))
+            continue
         for sch in cat["schemas"]:
             schema_name = sch["schema"]
             full_schema = f"{catalog_name}.{schema_name}"
@@ -99,8 +127,9 @@ def main():
             for table_name in sch["tables"]:
                 full_table = f"{full_schema}.{table_name}"
                 columns = get_columns_for_table(catalog_name, schema_name, table_name)
+                # Colunas já com descrição (comment) na DDL; nomes entre backticks por segurança
                 col_list = ", ".join(
-                    f"{name} {dtype} COMMENT '{_escape_sql_string(comment)}'"
+                    f"`{name}` {dtype} COMMENT '{_escape_sql_string(comment)}'"
                     for name, dtype, comment in columns
                 )
                 sql = f"CREATE OR REPLACE TABLE {full_table} ({col_list}) USING DELTA"

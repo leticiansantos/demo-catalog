@@ -1,0 +1,11 @@
+# Exclusões para databricks sync (não usar .gitignore para incluir .env no deploy).
+# Não listar .env nem .env.local para que sejam enviados ao workspace.
+# frontend/dist/ incluído no sync para o app servir a UI em produção
+frontend/node_modules/
+backend/__pycache__/
+backend/*.pyc
+.venv/
+.git/
+*.pyc
+__pycache__/
+node_modules/

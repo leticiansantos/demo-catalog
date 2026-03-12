@@ -124,21 +124,33 @@ export function TreePanel({ onSelectTable }) {
 
   useEffect(() => {
     fetch(`${API}/catalogs`)
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.statusText))))
-      .then((data) => setCatalogs(data.catalogs || []))
-      .catch((e) => setError(e.message))
+      .then(async (r) => {
+        const text = await r.text()
+        if (!r.ok) {
+          try {
+            const err = JSON.parse(text)
+            throw new Error(err.detail || r.statusText)
+          } catch (_) {
+            throw new Error(text || r.statusText)
+          }
+        }
+        return text ? JSON.parse(text) : {}
+      })
+      .then((data) => setCatalogs(Array.isArray(data?.catalogs) ? data.catalogs : []))
+      .catch((e) => setError(e.message || 'Failed to load catalogs'))
       .finally(() => setLoading(false))
   }, [])
 
   if (loading) return <div className="tree-panel"><div className="loading">A carregar catálogos…</div></div>
   if (error) return <div className="tree-panel"><div className="error">{error}</div></div>
 
+  const list = catalogs ?? []
   return (
     <aside className="tree-panel">
-      {catalogs.length === 0 ? (
-        <div className="loading">Nenhum catálogo motiva_* encontrado.</div>
+      {list.length === 0 ? (
+        <div className="loading">Nenhum catálogo encontrado.</div>
       ) : (
-        catalogs.map((c) => (
+        list.map((c) => (
           <CatalogNode
             key={c.name}
             name={c.name}

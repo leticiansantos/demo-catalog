@@ -1,10 +1,12 @@
 import React, { useState, useCallback } from 'react'
 import { TreePanel } from './TreePanel'
 import { DetailPanel } from './DetailPanel'
+import { AdminPage } from './AdminPage'
 
 const API = '/api'
 
 export default function App() {
+  const [view, setView] = useState('main') // 'main' | 'admin'
   const [selectedTable, setSelectedTable] = useState(null)
   const [tableDetail, setTableDetail] = useState(null)
   const [detailLoading, setDetailLoading] = useState(false)
@@ -40,16 +42,30 @@ export default function App() {
           />
         </a>
         <h1>Catalog Browser</h1>
-        <span className="badge">Apenas catálogos motiva_*</span>
+        <span className="badge">Todos os catálogos</span>
+        <nav className="app-nav">
+          <button type="button" className={`nav-link ${view === 'main' ? 'active' : ''}`} onClick={() => setView('main')}>
+            Catálogos
+          </button>
+          <button type="button" className={`nav-link ${view === 'admin' ? 'active' : ''}`} onClick={() => setView('admin')}>
+            Admin
+          </button>
+        </nav>
       </header>
       <div className="app-body">
-        <TreePanel onSelectTable={fetchTableDetail} />
-        <DetailPanel
+        {view === 'admin' ? (
+          <AdminPage />
+        ) : (
+          <>
+            <TreePanel onSelectTable={fetchTableDetail} />
+            <DetailPanel
           selectedTable={selectedTable}
           tableDetail={tableDetail}
           loading={detailLoading}
-          error={detailError}
-        />
+              error={detailError}
+            />
+          </>
+        )}
       </div>
     </div>
   )

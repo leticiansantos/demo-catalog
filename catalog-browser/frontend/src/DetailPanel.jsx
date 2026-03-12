@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
+
+const API = '/api'
 
 function formatDate(ms) {
   if (ms == null) return '—'
@@ -10,6 +12,45 @@ function formatDate(ms) {
 }
 
 export function DetailPanel({ selectedTable, tableDetail, loading, error }) {
+  const [modalOpen, setModalOpen] = useState(false)
+  const [requestReason, setRequestReason] = useState('')
+  const [requestedBy, setRequestedBy] = useState('')
+  const [requestSubmitting, setRequestSubmitting] = useState(false)
+  const [requestMessage, setRequestMessage] = useState(null)
+
+  const openRequestModal = useCallback(() => setModalOpen(true), [])
+  const closeRequestModal = useCallback(() => {
+    setModalOpen(false)
+    setRequestMessage(null)
+    setRequestReason('')
+    setRequestedBy('')
+  }, [])
+
+  const submitAccessRequest = useCallback(() => {
+    if (!selectedTable) return
+    setRequestSubmitting(true)
+    setRequestMessage(null)
+    fetch(`${API}/access-requests`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        catalog: selectedTable.catalog,
+        schema: selectedTable.schema,
+        table: selectedTable.table,
+        reason: requestReason.trim() || null,
+        requested_by: requestedBy.trim() || null,
+      }),
+    })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.statusText))))
+      .then(() => {
+        setRequestMessage({ type: 'success', text: 'Solicitação enviada com sucesso.' })
+        setRequestReason('')
+        setRequestedBy('')
+        setTimeout(closeRequestModal, 1500)
+      })
+      .catch((e) => setRequestMessage({ type: 'error', text: e.message }))
+      .finally(() => setRequestSubmitting(false))
+  }, [selectedTable, requestReason, requestedBy, closeRequestModal])
   if (!selectedTable) {
     return (
       <main className="detail-panel">
@@ -42,8 +83,15 @@ export function DetailPanel({ selectedTable, tableDetail, loading, error }) {
 
   return (
     <main className="detail-panel">
-      <h2>{name}</h2>
-      <div className="full-name">{full_name}</div>
+      <div className="detail-header-row">
+        <div>
+          <h2>{name}</h2>
+          <div className="full-name">{full_name}</div>
+        </div>
+        <button type="button" className="btn-request-access" onClick={openRequestModal}>
+          Solicitar acesso ao dado
+        </button>
+      </div>
 
       <dl className="detail-meta">
         <div>
@@ -100,6 +148,44 @@ export function DetailPanel({ selectedTable, tableDetail, loading, error }) {
           <p>Sem colunas ou informação não disponível.</p>
         )}
       </section>
+
+      {modalOpen && (
+        <div className="modal-overlay" onClick={closeRequestModal} role="dialog" aria-modal="true" aria-labelledby="modal-title">
+          <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+            <h3 id="modal-title">Solicitar acesso ao dado</h3>
+            <p className="modal-table-name">{full_name}</p>
+            <label className="modal-label">
+              Seu nome ou e-mail (opcional)
+              <input
+                type="text"
+                className="modal-input"
+                value={requestedBy}
+                onChange={(e) => setRequestedBy(e.target.value)}
+                placeholder="Nome ou e-mail"
+              />
+            </label>
+            <label className="modal-label">
+              Motivo da solicitação (opcional)
+              <textarea
+                className="modal-textarea"
+                value={requestReason}
+                onChange={(e) => setRequestReason(e.target.value)}
+                placeholder="Ex.: análise de vendas, relatório mensal..."
+                rows={3}
+              />
+            </label>
+            {requestMessage && (
+              <p className={requestMessage.type === 'success' ? 'modal-success' : 'modal-error'}>{requestMessage.text}</p>
+            )}
+            <div className="modal-actions">
+              <button type="button" className="btn-secondary" onClick={closeRequestModal}>Cancelar</button>
+              <button type="button" className="btn-primary" onClick={submitAccessRequest} disabled={requestSubmitting}>
+                {requestSubmitting ? 'A enviar…' : 'Enviar solicitação'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   )
 }

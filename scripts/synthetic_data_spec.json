@@ -1,10 +1,10 @@
 [
   {
-    "catalog": "motiva_rodovias",
-    "description": "Concessões, tráfego e indicadores de rodovias",
+    "catalog": "leticia_demo_catalog_catalog",
+    "description": "Catálogo único com dados sintéticos Motiva (schemas por domínio: motiva_rodovias_base, motiva_ativos_base, etc.)",
     "schemas": [
       {
-        "schema": "base",
+        "schema": "motiva_rodovias_base",
         "tables": [
           "base_tab_1",
           "base_tab_2",
@@ -15,7 +15,7 @@
         "table_count": 5
       },
       {
-        "schema": "raw_concessoes",
+        "schema": "motiva_rodovias_raw_concessoes",
         "tables": [
           "raw_concessoes_tab_1",
           "raw_concessoes_tab_2",
@@ -44,7 +44,7 @@
         "table_count": 23
       },
       {
-        "schema": "silver_trafego",
+        "schema": "motiva_rodovias_silver_trafego",
         "tables": [
           "silver_trafego_tab_1",
           "silver_trafego_tab_2",
@@ -79,7 +79,7 @@
         "table_count": 29
       },
       {
-        "schema": "gold_indicadores",
+        "schema": "motiva_rodovias_gold_indicadores",
         "tables": [
           "gold_indicadores_tab_1",
           "gold_indicadores_tab_2",
@@ -104,7 +104,7 @@
         "table_count": 19
       },
       {
-        "schema": "custos_operacao",
+        "schema": "motiva_rodovias_custos_operacao",
         "tables": [
           "custos_operacao_tab_1",
           "custos_operacao_tab_2",
@@ -130,7 +130,7 @@
         "table_count": 20
       },
       {
-        "schema": "incidentes",
+        "schema": "motiva_rodovias_incidentes",
         "tables": [
           "incidentes_tab_1",
           "incidentes_tab_2",
@@ -159,15 +159,9 @@
           "incidentes_tab_25"
         ],
         "table_count": 25
-      }
-    ]
-  },
-  {
-    "catalog": "motiva_trens",
-    "description": "Viagens, frota e passageiros de trens",
-    "schemas": [
+      },
       {
-        "schema": "base",
+        "schema": "motiva_trens_base",
         "tables": [
           "base_tab_1",
           "base_tab_2",
@@ -178,7 +172,7 @@
         "table_count": 5
       },
       {
-        "schema": "raw_viagens",
+        "schema": "motiva_trens_raw_viagens",
         "tables": [
           "raw_viagens_tab_1",
           "raw_viagens_tab_2",
@@ -204,7 +198,7 @@
         "table_count": 20
       },
       {
-        "schema": "silver_frota",
+        "schema": "motiva_trens_silver_frota",
         "tables": [
           "silver_frota_tab_1",
           "silver_frota_tab_2",
@@ -232,7 +226,7 @@
         "table_count": 22
       },
       {
-        "schema": "gold_passageiros",
+        "schema": "motiva_trens_gold_passageiros",
         "tables": [
           "gold_passageiros_tab_1",
           "gold_passageiros_tab_2",
@@ -262,7 +256,7 @@
         "table_count": 24
       },
       {
-        "schema": "manutencao_vagoes",
+        "schema": "motiva_trens_manutencao_vagoes",
         "tables": [
           "manutencao_vagoes_tab_1",
           "manutencao_vagoes_tab_2",
@@ -284,7 +278,7 @@
         "table_count": 16
       },
       {
-        "schema": "horarios",
+        "schema": "motiva_trens_horarios",
         "tables": [
           "horarios_tab_1",
           "horarios_tab_2",
@@ -303,15 +297,9 @@
           "horarios_tab_15"
         ],
         "table_count": 15
-      }
-    ]
-  },
-  {
-    "catalog": "motiva_metro",
-    "description": "Estações, linhas e bilhetagem do metrô",
-    "schemas": [
+      },
       {
-        "schema": "base",
+        "schema": "motiva_metro_base",
         "tables": [
           "base_tab_1",
           "base_tab_2",
@@ -322,7 +310,7 @@
         "table_count": 5
       },
       {
-        "schema": "raw_estacoes",
+        "schema": "motiva_metro_raw_estacoes",
         "tables": [
           "raw_estacoes_tab_1",
           "raw_estacoes_tab_2",
@@ -343,7 +331,7 @@
         "table_count": 15
       },
       {
-        "schema": "silver_linhas",
+        "schema": "motiva_metro_silver_linhas",
         "tables": [
           "silver_linhas_tab_1",
           "silver_linhas_tab_2",
@@ -372,7 +360,7 @@
         "table_count": 23
       },
       {
-        "schema": "gold_bilhetagem",
+        "schema": "motiva_metro_gold_bilhetagem",
         "tables": [
           "gold_bilhetagem_tab_1",
           "gold_bilhetagem_tab_2",
@@ -407,7 +395,7 @@
         "table_count": 29
       },
       {
-        "schema": "seguranca",
+        "schema": "motiva_metro_seguranca",
         "tables": [
           "seguranca_tab_1",
           "seguranca_tab_2",
@@ -422,7 +410,7 @@
         "table_count": 9
       },
       {
-        "schema": "infraestrutura",
+        "schema": "motiva_metro_infraestrutura",
         "tables": [
           "infraestrutura_tab_1",
           "infraestrutura_tab_2",
@@ -448,15 +436,9 @@
           "infraestrutura_tab_22"
         ],
         "table_count": 22
-      }
-    ]
-  },
-  {
-    "catalog": "motiva_pedagios",
-    "description": "Transações, tags e faturamento de pedágios",
-    "schemas": [
+      },
       {
-        "schema": "base",
+        "schema": "motiva_pedagios_base",
         "tables": [
           "base_tab_1",
           "base_tab_2",
@@ -467,7 +449,7 @@
         "table_count": 5
       },
       {
-        "schema": "raw_transacoes",
+        "schema": "motiva_pedagios_raw_transacoes",
         "tables": [
           "raw_transacoes_tab_1",
           "raw_transacoes_tab_2",
@@ -496,7 +478,7 @@
         "table_count": 23
       },
       {
-        "schema": "silver_tags",
+        "schema": "motiva_pedagios_silver_tags",
         "tables": [
           "silver_tags_tab_1",
           "silver_tags_tab_2",
@@ -521,7 +503,7 @@
         "table_count": 19
       },
       {
-        "schema": "gold_faturamento",
+        "schema": "motiva_pedagios_gold_faturamento",
         "tables": [
           "gold_faturamento_tab_1",
           "gold_faturamento_tab_2",
@@ -554,7 +536,7 @@
         "table_count": 27
       },
       {
-        "schema": "concessionarias",
+        "schema": "motiva_pedagios_concessionarias",
         "tables": [
           "concessionarias_tab_1",
           "concessionarias_tab_2",
@@ -575,7 +557,7 @@
         "table_count": 15
       },
       {
-        "schema": "tarifas",
+        "schema": "motiva_pedagios_tarifas",
         "tables": [
           "tarifas_tab_1",
           "tarifas_tab_2",
@@ -584,15 +566,9 @@
           "tarifas_tab_5"
         ],
         "table_count": 5
-      }
-    ]
-  },
-  {
-    "catalog": "motiva_rh",
-    "description": "Funcionários, folha e indicadores de RH",
-    "schemas": [
+      },
       {
-        "schema": "base",
+        "schema": "motiva_rh_base",
         "tables": [
           "base_tab_1",
           "base_tab_2",
@@ -603,7 +579,7 @@
         "table_count": 5
       },
       {
-        "schema": "raw_funcionarios",
+        "schema": "motiva_rh_raw_funcionarios",
         "tables": [
           "raw_funcionarios_tab_1",
           "raw_funcionarios_tab_2",
@@ -633,7 +609,7 @@
         "table_count": 24
       },
       {
-        "schema": "silver_folha",
+        "schema": "motiva_rh_silver_folha",
         "tables": [
           "silver_folha_tab_1",
           "silver_folha_tab_2",
@@ -645,7 +621,7 @@
         "table_count": 6
       },
       {
-        "schema": "gold_indicadores_rh",
+        "schema": "motiva_rh_gold_indicadores_rh",
         "tables": [
           "gold_indicadores_rh_tab_1",
           "gold_indicadores_rh_tab_2",
@@ -670,7 +646,7 @@
         "table_count": 19
       },
       {
-        "schema": "treinamentos",
+        "schema": "motiva_rh_treinamentos",
         "tables": [
           "treinamentos_tab_1",
           "treinamentos_tab_2",
@@ -688,7 +664,7 @@
         "table_count": 12
       },
       {
-        "schema": "beneficios",
+        "schema": "motiva_rh_beneficios",
         "tables": [
           "beneficios_tab_1",
           "beneficios_tab_2",
@@ -704,15 +680,9 @@
           "beneficios_tab_12"
         ],
         "table_count": 12
-      }
-    ]
-  },
-  {
-    "catalog": "motiva_manutencao",
-    "description": "Ordens de serviço, equipamentos e custos de manutenção",
-    "schemas": [
+      },
       {
-        "schema": "base",
+        "schema": "motiva_manutencao_base",
         "tables": [
           "base_tab_1",
           "base_tab_2",
@@ -723,7 +693,7 @@
         "table_count": 5
       },
       {
-        "schema": "raw_ordens_servico",
+        "schema": "motiva_manutencao_raw_ordens_servico",
         "tables": [
           "raw_ordens_servico_tab_1",
           "raw_ordens_servico_tab_2",
@@ -744,7 +714,7 @@
         "table_count": 15
       },
       {
-        "schema": "silver_equipamentos",
+        "schema": "motiva_manutencao_silver_equipamentos",
         "tables": [
           "silver_equipamentos_tab_1",
           "silver_equipamentos_tab_2",
@@ -777,7 +747,7 @@
         "table_count": 27
       },
       {
-        "schema": "gold_custos_manutencao",
+        "schema": "motiva_manutencao_gold_custos_manutencao",
         "tables": [
           "gold_custos_manutencao_tab_1",
           "gold_custos_manutencao_tab_2",
@@ -794,7 +764,7 @@
         "table_count": 11
       },
       {
-        "schema": "contratos",
+        "schema": "motiva_manutencao_contratos",
         "tables": [
           "contratos_tab_1",
           "contratos_tab_2",
@@ -828,7 +798,7 @@
         "table_count": 28
       },
       {
-        "schema": "historico",
+        "schema": "motiva_manutencao_historico",
         "tables": [
           "historico_tab_1",
           "historico_tab_2",
@@ -849,15 +819,9 @@
           "historico_tab_17"
         ],
         "table_count": 17
-      }
-    ]
-  },
-  {
-    "catalog": "motiva_financeiro",
-    "description": "Lançamentos, contas e DRE",
-    "schemas": [
+      },
       {
-        "schema": "base",
+        "schema": "motiva_financeiro_base",
         "tables": [
           "base_tab_1",
           "base_tab_2",
@@ -868,7 +832,7 @@
         "table_count": 5
       },
       {
-        "schema": "raw_lancamentos",
+        "schema": "motiva_financeiro_raw_lancamentos",
         "tables": [
           "raw_lancamentos_tab_1",
           "raw_lancamentos_tab_2",
@@ -900,7 +864,7 @@
         "table_count": 26
       },
       {
-        "schema": "silver_contas",
+        "schema": "motiva_financeiro_silver_contas",
         "tables": [
           "silver_contas_tab_1",
           "silver_contas_tab_2",
@@ -930,7 +894,7 @@
         "table_count": 24
       },
       {
-        "schema": "gold_dre",
+        "schema": "motiva_financeiro_gold_dre",
         "tables": [
           "gold_dre_tab_1",
           "gold_dre_tab_2",
@@ -963,7 +927,7 @@
         "table_count": 27
       },
       {
-        "schema": "orcamento",
+        "schema": "motiva_financeiro_orcamento",
         "tables": [
           "orcamento_tab_1",
           "orcamento_tab_2",
@@ -990,7 +954,7 @@
         "table_count": 21
       },
       {
-        "schema": "conciliacao",
+        "schema": "motiva_financeiro_conciliacao",
         "tables": [
           "conciliacao_tab_1",
           "conciliacao_tab_2",
@@ -1014,15 +978,9 @@
           "conciliacao_tab_20"
         ],
         "table_count": 20
-      }
-    ]
-  },
-  {
-    "catalog": "motiva_operacoes",
-    "description": "Eventos, turnos e produção operacional",
-    "schemas": [
+      },
       {
-        "schema": "base",
+        "schema": "motiva_operacoes_base",
         "tables": [
           "base_tab_1",
           "base_tab_2",
@@ -1033,7 +991,7 @@
         "table_count": 5
       },
       {
-        "schema": "raw_eventos",
+        "schema": "motiva_operacoes_raw_eventos",
         "tables": [
           "raw_eventos_tab_1",
           "raw_eventos_tab_2",
@@ -1046,7 +1004,7 @@
         "table_count": 7
       },
       {
-        "schema": "silver_turnos",
+        "schema": "motiva_operacoes_silver_turnos",
         "tables": [
           "silver_turnos_tab_1",
           "silver_turnos_tab_2",
@@ -1057,7 +1015,7 @@
         "table_count": 5
       },
       {
-        "schema": "gold_producao",
+        "schema": "motiva_operacoes_gold_producao",
         "tables": [
           "gold_producao_tab_1",
           "gold_producao_tab_2",
@@ -1077,7 +1035,7 @@
         "table_count": 14
       },
       {
-        "schema": "dashboards",
+        "schema": "motiva_operacoes_dashboards",
         "tables": [
           "dashboards_tab_1",
           "dashboards_tab_2",
@@ -1094,7 +1052,7 @@
         "table_count": 11
       },
       {
-        "schema": "alertas",
+        "schema": "motiva_operacoes_alertas",
         "tables": [
           "alertas_tab_1",
           "alertas_tab_2",
@@ -1122,15 +1080,9 @@
           "alertas_tab_24"
         ],
         "table_count": 24
-      }
-    ]
-  },
-  {
-    "catalog": "motiva_ativos",
-    "description": "Veículos, equipamentos e depreciação",
-    "schemas": [
+      },
       {
-        "schema": "base",
+        "schema": "motiva_ativos_base",
         "tables": [
           "base_tab_1",
           "base_tab_2",
@@ -1141,7 +1093,7 @@
         "table_count": 5
       },
       {
-        "schema": "raw_veiculos",
+        "schema": "motiva_ativos_raw_veiculos",
         "tables": [
           "raw_veiculos_tab_1",
           "raw_veiculos_tab_2",
@@ -1155,7 +1107,7 @@
         "table_count": 8
       },
       {
-        "schema": "silver_equipamentos",
+        "schema": "motiva_ativos_silver_equipamentos",
         "tables": [
           "silver_equipamentos_tab_1",
           "silver_equipamentos_tab_2",
@@ -1190,7 +1142,7 @@
         "table_count": 29
       },
       {
-        "schema": "gold_depreciacao",
+        "schema": "motiva_ativos_gold_depreciacao",
         "tables": [
           "gold_depreciacao_tab_1",
           "gold_depreciacao_tab_2",
@@ -1212,7 +1164,7 @@
         "table_count": 16
       },
       {
-        "schema": "localizacao",
+        "schema": "motiva_ativos_localizacao",
         "tables": [
           "localizacao_tab_1",
           "localizacao_tab_2",
@@ -1233,7 +1185,7 @@
         "table_count": 15
       },
       {
-        "schema": "documentos",
+        "schema": "motiva_ativos_documentos",
         "tables": [
           "documentos_tab_1",
           "documentos_tab_2",
@@ -1262,15 +1214,9 @@
           "documentos_tab_25"
         ],
         "table_count": 25
-      }
-    ]
-  },
-  {
-    "catalog": "motiva_clientes",
-    "description": "Cadastros, contratos e consumo de clientes/usuários",
-    "schemas": [
+      },
       {
-        "schema": "base",
+        "schema": "motiva_clientes_base",
         "tables": [
           "base_tab_1",
           "base_tab_2",
@@ -1281,7 +1227,7 @@
         "table_count": 5
       },
       {
-        "schema": "raw_cadastros",
+        "schema": "motiva_clientes_raw_cadastros",
         "tables": [
           "raw_cadastros_tab_1",
           "raw_cadastros_tab_2",
@@ -1295,7 +1241,7 @@
         "table_count": 8
       },
       {
-        "schema": "silver_contratos",
+        "schema": "motiva_clientes_silver_contratos",
         "tables": [
           "silver_contratos_tab_1",
           "silver_contratos_tab_2",
@@ -1318,7 +1264,7 @@
         "table_count": 17
       },
       {
-        "schema": "gold_consumo",
+        "schema": "motiva_clientes_gold_consumo",
         "tables": [
           "gold_consumo_tab_1",
           "gold_consumo_tab_2",
@@ -1329,7 +1275,7 @@
         "table_count": 5
       },
       {
-        "schema": "suporte",
+        "schema": "motiva_clientes_suporte",
         "tables": [
           "suporte_tab_1",
           "suporte_tab_2",
@@ -1349,7 +1295,7 @@
         "table_count": 14
       },
       {
-        "schema": "preferencias",
+        "schema": "motiva_clientes_preferencias",
         "tables": [
           "preferencias_tab_1",
           "preferencias_tab_2",

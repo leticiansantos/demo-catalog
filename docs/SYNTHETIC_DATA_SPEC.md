@@ -2,32 +2,39 @@
 
 Empresa simulada: **Motiva** (rodovias, trens, metrô, pedágios, RH e áreas internas).
 
-**Totais:** 10 catálogos | 60 schemas | 963 tabelas.
+**Estrutura atual:** um único catálogo **`leticia_demo_catalog_catalog`** com **60 schemas** e **963 tabelas**.  
+Os schemas têm nome **`{domínio}_{schema}`** (ex.: `motiva_ativos_base`, `motiva_rodovias_silver_trafego`), como no antigo `motiva_ativos` em que o schema era `base` — agora fica `motiva_ativos_base`.
 
-Cada catálogo tem **garantido pelo menos 1 schema (`base`) com 5 tabelas** (`base_tab_1` … `base_tab_5`), além dos schemas por área (5–30 tabelas cada, seed fixo).
-
----
-
-## Resumo por catálogo
-
-| # | Catálogo | Descrição | Schemas | Tabelas (aprox.) |
-|---|----------|-----------|---------|------------------|
-| 1 | `motiva_rodovias` | Concessões, tráfego e indicadores de rodovias | 6 (base + 5) | 121 |
-| 2 | `motiva_trens` | Viagens, frota e passageiros de trens | 6 | 102 |
-| 3 | `motiva_metro` | Estações, linhas e bilhetagem do metrô | 6 | 105 |
-| 4 | `motiva_pedagios` | Transações, tags e faturamento de pedágios | 6 | 98 |
-| 5 | `motiva_rh` | Funcionários, folha e indicadores de RH | 6 | 94 |
-| 6 | `motiva_manutencao` | Ordens de serviço, equipamentos e custos | 6 | 100 |
-| 7 | `motiva_financeiro` | Lançamentos, contas e DRE | 6 | 118 |
-| 8 | `motiva_operacoes` | Eventos, turnos e produção operacional | 6 | 66 |
-| 9 | `motiva_ativos` | Veículos, equipamentos e depreciação | 6 | 98 |
-| 10 | `motiva_clientes` | Cadastros, contratos e consumo | 6 | 75 |
+**Totais:** 1 catálogo | 60 schemas | 963 tabelas.
 
 ---
 
-## 1. motiva_rodovias
+## Catálogo único: leticia_demo_catalog_catalog
 
-**Schemas:** `base` (5 tabelas) | `raw_concessoes` | `silver_trafego` | `gold_indicadores` | `custos_operacao` | `incidentes`
+Todos os domínios Motiva ficam neste catálogo, com schemas concatenados:
+
+| Domínio (prefixo do schema) | Exemplos de schemas |
+|-----------------------------|---------------------|
+| motiva_rodovias | `motiva_rodovias_base`, `motiva_rodovias_raw_concessoes`, `motiva_rodovias_silver_trafego`, … |
+| motiva_trens | `motiva_trens_base`, `motiva_trens_raw_viagens`, … |
+| motiva_metro | `motiva_metro_base`, `motiva_metro_raw_estacoes`, … |
+| motiva_pedagios | `motiva_pedagios_base`, `motiva_pedagios_raw_transacoes`, … |
+| motiva_rh | `motiva_rh_base`, `motiva_rh_raw_funcionarios`, … |
+| motiva_manutencao | `motiva_manutencao_base`, `motiva_manutencao_raw_ordens_servico`, … |
+| motiva_financeiro | `motiva_financeiro_base`, `motiva_financeiro_raw_lancamentos`, … |
+| motiva_operacoes | `motiva_operacoes_base`, `motiva_operacoes_raw_eventos`, … |
+| motiva_ativos | `motiva_ativos_base`, `motiva_ativos_raw_veiculos`, `motiva_ativos_silver_equipamentos`, … |
+| motiva_clientes | `motiva_clientes_base`, `motiva_clientes_raw_cadastros`, … |
+
+---
+
+## Estrutura lógica por domínio (schemas no catálogo único)
+
+Os schemas no catálogo único seguem a mesma estrutura lógica; o nome do schema é `{domínio}_{schema}`.
+
+### motiva_rodovias
+
+**Schemas no catálogo único:** `motiva_rodovias_base` | `motiva_rodovias_raw_concessoes` | `motiva_rodovias_silver_trafego` | etc.
 
 - **base** — 5 tabelas: `base_tab_1` … `base_tab_5` (mínimo garantido em todos os catálogos)
 - **raw_concessoes** — 23 tabelas: `raw_concessoes_tab_1` … `raw_concessoes_tab_23`
@@ -150,4 +157,4 @@ Cada catálogo tem **garantido pelo menos 1 schema (`base`) com 5 tabelas** (`ba
 
 - **Lista completa (nomes exatos):** `python3 scripts/synthetic_data_spec.py --list`
 - **Spec em JSON:** `scripts/synthetic_data_spec.json` (usado por `scripts/create_schemas_tables.py`)
-- **Terraform:** cria os 10 catálogos; schemas e tabelas: `scripts/create_schemas_tables.py` (cria primeiro o schema `base` com 5 tabelas em cada catálogo, depois os demais).
+- **Criar catálogo, schemas e tabelas:** `scripts/create_schemas_tables.py` — cria o catálogo `leticia_demo_catalog_catalog` (se não existir), depois os 60 schemas e 963 tabelas. Requer `DATABRICKS_HOST`, token e um SQL Warehouse.

@@ -50,6 +50,25 @@ npm run dev
 
 Abre o browser em **http://localhost:5174**. O frontend faz proxy de `/api` e `/health` para o backend na porta 8000.
 
+## Deploy no Databricks Apps
+
+O app pode ser implantado como [Databricks App](https://docs.databricks.com/aws/en/dev-tools/databricks-apps/). O sync usa **`.databricksignore`** (e não `.gitignore`), para que o ficheiro **`.env`** seja enviado ao workspace sem alterar o `.gitignore`.
+
+1. **Configure o `.env`** (DATABRICKS_HOST, DATABRICKS_TOKEN, etc.) e autentique o CLI:
+   ```bash
+   databricks auth login
+   ```
+2. **Defina o path do código no workspace** (obrigatório):
+   ```bash
+   export WORKSPACE_APP_PATH="/Workspace/Users/SEU_EMAIL@empresa.com/catalog-browser"
+   ```
+3. **Execute o script de deploy** a partir da pasta do app:
+   ```bash
+   cd catalog-browser
+   ./deploy-app.sh
+   ```
+O script faz: sync com `--exclude-from .databricksignore` (inclui `.env`), cria o app se não existir e executa `databricks apps deploy` em modo AUTO_SYNC.
+
 ## Estrutura
 
 - **backend/** — FastAPI; lista catálogos (motiva_*), schemas, tabelas; detalhe da tabela (descrição, colunas, dono).
